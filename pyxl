@@ -1,0 +1,24 @@
+
+from openpyxl import load_workbook
+
+load_wb = load_workbook("C:/Users/jaepe/Downloads/bible365.xlsx", data_only=True)
+
+load_ws = load_wb['Sheet1']
+
+print(load_ws['A3'].value)
+
+get_cells = load_ws['A2':'E5']
+for row in get_cells:
+    for cell in row:
+        print(cell.value)
+
+all_values = []
+for row in load_ws.rows:
+    row_value = []
+    for cell in row :
+        row_value.append(cell.value)
+    all_values.append(row_value)
+print(all_values)
+
+#for row in load_ws.rows: ##columns
+#    print(row)
